@@ -29,7 +29,7 @@ export default function MobileNav({ currentPage, onNavigate }: MobileNavProps) {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden p-2 text-[#F5F5F5] hover:text-[#CC9933] transition-colors z-50 relative"
+        className="md:hidden p-2 text-[#F5F5F5] hover:text-[#B6B6B4] transition-colors z-50 relative"
         aria-label="Toggle menu"
       >
         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -42,7 +42,7 @@ export default function MobileNav({ currentPage, onNavigate }: MobileNavProps) {
             key={page.id}
             onClick={() => onNavigate(page.id)}
             className={`text-sm tracking-widest uppercase transition-colors ${
-              page.id === currentPage ? 'text-[#CC9933]' : 'text-[#F5F5F5] hover:text-[#CC9933]'
+              page.id === currentPage ? 'text-[#B6B6B4]' : 'text-[#F5F5F5] hover:text-[#B6B6B4]'
             }`}
           >
             {page.label}
@@ -54,7 +54,7 @@ export default function MobileNav({ currentPage, onNavigate }: MobileNavProps) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-[#0A0A0A]/98 backdrop-blur-md z-40 md:hidden"
+            className="fixed inset-0 bg-[#000100]/98 backdrop-blur-md z-40 md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -66,7 +66,7 @@ export default function MobileNav({ currentPage, onNavigate }: MobileNavProps) {
                   key={page.id}
                   onClick={() => handleNavigate(page.id)}
                   className={`text-2xl tracking-widest uppercase transition-colors ${
-                    page.id === currentPage ? 'text-[#CC9933]' : 'text-[#F5F5F5]'
+                    page.id === currentPage ? 'text-[#B6B6B4]' : 'text-[#F5F5F5]'
                   }`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ export default function MobileNav({ currentPage, onNavigate }: MobileNavProps) {
                   {page.label}
                   {page.id === currentPage && (
                     <motion.div
-                      className="h-0.5 bg-[#CC9933] mt-2"
+                      className="h-0.5 bg-[#B6B6B4] mt-2"
                       layoutId="underline"
                     />
                   )}

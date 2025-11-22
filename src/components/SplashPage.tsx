@@ -15,10 +15,10 @@ export default function SplashPage({ onNavigate }: SplashPageProps) {
   ];
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-[#0A0A0A] relative overflow-hidden">
+    <div className="min-h-screen w-full flex items-center justify-center bg-[#000100] relative overflow-hidden">
       {/* Subtle background texture */}
       <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: 'radial-gradient(circle at 1px 1px, #CC9933 1px, transparent 0)',
+        backgroundImage: 'radial-gradient(circle at 1px 1px, #B6B6B4 1px, transparent 0)',
         backgroundSize: '40px 40px'
       }} />
 
@@ -50,7 +50,7 @@ export default function SplashPage({ onNavigate }: SplashPageProps) {
             width="300"
             height="120"
             viewBox="0 0 300 120"
-            className="text-[#CC9933]"
+            className="text-[#B6B6B4]"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -61,7 +61,7 @@ export default function SplashPage({ onNavigate }: SplashPageProps) {
               strokeLinecap="round"
               strokeLinejoin="round"
               style={{
-                filter: 'drop-shadow(0 0 8px rgba(204, 153, 51, 0.5))'
+                filter: 'drop-shadow(0 0 8px rgba(182, 182, 180, 0.5))'
               }}
             />
           </svg>
@@ -78,7 +78,7 @@ export default function SplashPage({ onNavigate }: SplashPageProps) {
             <div key={item.page} className="flex items-center">
               <motion.button
                 onClick={() => onNavigate(item.page)}
-                className="text-[#F5F5F5] text-lg md:text-xl tracking-widest hover:text-[#CC9933] transition-all duration-300 relative group px-6 py-2"
+                className="text-[#F5F5F5] text-lg md:text-xl tracking-widest hover:text-[#B6B6B4] transition-all duration-300 relative group px-6 py-2"
                 style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.2em' }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -87,13 +87,13 @@ export default function SplashPage({ onNavigate }: SplashPageProps) {
                 transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
               >
                 {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#CC9933] group-hover:w-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#B6B6B4] group-hover:w-full transition-all duration-300" />
               </motion.button>
               
               {/* Gold divider between items */}
               {index < navItems.length - 1 && (
                 <motion.div
-                  className="w-px h-6 bg-[#CC9933] opacity-30 mt-6"
+                  className="w-px h-6 bg-[#B6B6B4] opacity-30 mt-6"
                   initial={{ scaleY: 0 }}
                   animate={{ scaleY: 1 }}
                   transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}

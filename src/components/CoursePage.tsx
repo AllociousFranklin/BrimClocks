@@ -42,48 +42,52 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
 
   const modules = [
     {
-      title: 'Module 1: Foundations of Artistic Excellence',
+      title: 'Foundations',
       lessons: [
-        'Understanding Light, Shadow, and Form',
-        'Color Theory and Palette Development',
-        'Composition and Visual Hierarchy',
-        'Materials and Tools of the Trade',
+        'Introduction to Materials: Types of charcoal (vine, compressed, pencil), erasers, blending tools, papers.',
+        'Basic Handling: How to hold charcoal, pressure control, line variation.',
+        'Fundamental Shapes: Drawing spheres, cubes, cylinders with shading.',
+        'Light & Shadow Basics: Understanding value scales, highlights, mid-tones, and shadows.',
+        'Simple Still Life: Sketching everyday objects with basic shading.',
       ],
     },
     {
-      title: 'Module 2: Classical Techniques',
+      title: 'Elementary',
       lessons: [
-        'Drawing Fundamentals and Anatomy',
-        'Oil Painting Methods and Layering',
-        'Portrait Studies and Character',
-        'Landscape and Environmental Painting',
+        'Gesture Drawing: Quick sketches to capture movement and energy.',
+        'Texture Techniques: Creating wood, fabric, metal, and skin textures.',
+        'Blending & Smudging: Using fingers, stumps, tissues for smooth gradients.',
+        'Perspective Drawing: One-point and two-point perspective with charcoal.',
+        'Portrait Basics: Facial proportions, features, and tonal studies.',
       ],
     },
     {
-      title: 'Module 3: Contemporary Expression',
+      title: 'Advanced Practice',
       lessons: [
-        'Abstract Composition and Conceptual Art',
-        'Mixed Media and Experimental Techniques',
-        'Personal Style Development',
-        'Finding Your Artistic Voice',
+        'Complex Compositions: Arranging multiple objects with depth and atmosphere.',
+        'Advanced Anatomy: Muscles, hands, and expressive poses.',
+        'Dramatic Lighting: Chiaroscuro techniques for strong contrast.',
+        'Expressive Mark-Making: Loose strokes, layering, and experimental styles.',
+        'Large-Scale Works: Working on oversized paper for impact.',
       ],
     },
     {
-      title: 'Module 4: Professional Practice',
+      title: 'Mastery',
       lessons: [
-        'Building a Cohesive Portfolio',
-        'Gallery Representation and Exhibitions',
-        'Pricing and Marketing Your Work',
-        'Sustainable Art Career Development',
+        'Narrative Drawing: Telling stories through charcoal compositions.',
+        'Mixed Media Integration: Combining charcoal with ink, pastel, or watercolor.',
+        'Personal Style Development: Refining unique techniques and artistic voice.',
+        'Portfolio Creation: Preparing works for exhibitions or professional presentation.',
+        'Critique & Refinement: Self-assessment and peer review for growth.',
       ],
     },
   ];
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A]">
+    <div className="min-h-screen bg-[#000100]">
       {/* Navigation Header */}
       <motion.header
-        className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0A]/95 backdrop-blur-sm border-b border-[#CC9933]/20"
+        className="fixed top-0 left-0 right-0 z-50 bg-[#000100]/95 backdrop-blur-sm border-b border-[#B6B6B4]/20"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
@@ -91,7 +95,7 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <button
             onClick={() => onNavigate('splash')}
-            className="text-xl md:text-2xl text-[#CC9933] tracking-wider hover:opacity-80 transition-opacity"
+            className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
             style={{ fontFamily: 'Playfair Display, serif' }}
           >
             Theory of Arts
@@ -108,7 +112,7 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
             alt="Art Masterclass"
             className="w-full h-full object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/70 via-[#0A0A0A]/50 to-[#0A0A0A]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#000100]/70 via-[#000100]/50 to-[#000100]" />
         </div>
 
         <motion.div
@@ -117,7 +121,7 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          <h1 className="text-5xl md:text-7xl text-[#CC9933] mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <h1 className="text-5xl md:text-7xl text-[#B6B6B4] mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
             The Theory of Arts Masterclass
           </h1>
           <p className="text-2xl md:text-3xl text-[#F5F5F5] mb-4">
@@ -129,7 +133,7 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
           </p>
           <motion.button
             onClick={() => onNavigate('contacts')}
-            className="px-12 py-4 bg-[#CC9933] text-[#0A0A0A] text-lg hover:bg-[#CC9933]/90 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(204,153,51,0.4)]"
+            className="px-12 py-4 bg-[#B6B6B4] text-[#000100] text-lg hover:bg-[#B6B6B4]/90 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(182,182,180,0.4)]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -139,10 +143,10 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
       </section>
 
       {/* Value Proposition */}
-      <section className="py-24 px-6 bg-[#1C1C1C]/30">
+      <section className="py-24 px-6 bg-[#292929]/30">
         <div className="max-w-7xl mx-auto">
           <motion.h2
-            className="text-4xl md:text-6xl text-[#CC9933] mb-16 text-center"
+            className="text-4xl md:text-6xl text-[#B6B6B4] mb-16 text-center"
             style={{ fontFamily: 'Playfair Display, serif' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -158,14 +162,14 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
               return (
                 <motion.div
                   key={index}
-                  className="text-center p-8 bg-[#1C1C1C] border-2 border-transparent hover:border-[#CC9933] transition-all duration-300 hover:shadow-[0_0_30px_rgba(204,153,51,0.2)]"
+                  className="text-center p-8 bg-[#292929] border-2 border-transparent hover:border-[#B6B6B4] transition-all duration-300 hover:shadow-[0_0_30px_rgba(182,182,180,0.2)]"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <div className="inline-block p-4 bg-[#CC9933]/10 rounded-full mb-6">
-                    <Icon className="w-8 h-8 text-[#CC9933]" />
+                  <div className="inline-block p-4 bg-[#B6B6B4]/10 rounded-full mb-6">
+                    <Icon className="w-8 h-8 text-[#B6B6B4]" />
                   </div>
                   <h3 className="text-xl text-[#F5F5F5] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
                     {feature.title}
@@ -184,7 +188,7 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <motion.h2
-            className="text-4xl md:text-6xl text-[#CC9933] mb-16 text-center"
+            className="text-4xl md:text-6xl text-[#B6B6B4] mb-16 text-center"
             style={{ fontFamily: 'Playfair Display, serif' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -205,16 +209,16 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="border-2 border-[#CC9933]/20 bg-[#1C1C1C] px-6 data-[state=open]:border-[#CC9933]"
+                  className="border-2 border-[#B6B6B4]/20 bg-[#292929] px-6 data-[state=open]:border-[#B6B6B4]"
                 >
-                  <AccordionTrigger className="text-xl text-[#CC9933] hover:no-underline" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <AccordionTrigger className="text-xl text-[#B6B6B4] hover:no-underline" style={{ fontFamily: 'Playfair Display, serif' }}>
                     {module.title}
                   </AccordionTrigger>
                   <AccordionContent>
                     <ul className="space-y-3 pt-4">
                       {module.lessons.map((lesson, lessonIndex) => (
                         <li key={lessonIndex} className="flex items-start">
-                          <span className="text-[#CC9933] mr-3">•</span>
+                          <span className="text-[#B6B6B4] mr-3">•</span>
                           <span className="text-[#F5F5F5]">{lesson}</span>
                         </li>
                       ))}
@@ -228,10 +232,10 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
       </section>
 
       {/* Enrollment Section */}
-      <section className="py-24 px-6 bg-[#1C1C1C]/30">
+      <section className="py-24 px-6 bg-[#292929]/30">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
-            className="text-4xl md:text-6xl text-[#CC9933] mb-8"
+            className="text-4xl md:text-6xl text-[#B6B6B4] mb-8"
             style={{ fontFamily: 'Playfair Display, serif' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -254,7 +258,7 @@ export default function CoursePage({ onNavigate }: CoursePageProps) {
 
           <motion.button
             onClick={() => onNavigate('contacts')}
-            className="px-16 py-5 bg-[#CC9933] text-[#0A0A0A] text-lg hover:bg-[#CC9933]/90 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(204,153,51,0.4)]"
+            className="px-16 py-5 bg-[#B6B6B4] text-[#000100] text-lg hover:bg-[#B6B6B4]/90 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(182,182,180,0.4)]"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}

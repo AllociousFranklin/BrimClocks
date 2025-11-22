@@ -2,7 +2,7 @@ import { Instagram, Twitter } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0A0A0A] border-t border-[#CC9933]/20 py-8 px-6">
+    <footer className="bg-[#000100] border-t border-[#B6B6B4]/20 py-8 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Copyright */}
@@ -16,7 +16,7 @@ export default function Footer() {
               href="https://instagram.com/theoryofarts"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#CC9933] hover:text-[#CC9933]/80 transition-colors"
+              className="text-[#B6B6B4] hover:text-[#B6B6B4]/80 transition-colors"
               aria-label="Instagram"
             >
               <Instagram className="w-5 h-5" />
@@ -25,7 +25,7 @@ export default function Footer() {
               href="https://twitter.com/theoryofarts"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#CC9933] hover:text-[#CC9933]/80 transition-colors"
+              className="text-[#B6B6B4] hover:text-[#B6B6B4]/80 transition-colors"
               aria-label="Twitter"
             >
               <Twitter className="w-5 h-5" />
@@ -34,7 +34,7 @@ export default function Footer() {
               href="https://pinterest.com/theoryofarts"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#CC9933] hover:text-[#CC9933]/80 transition-colors"
+              className="text-[#B6B6B4] hover:text-[#B6B6B4]/80 transition-colors"
               aria-label="Pinterest"
             >
               <svg

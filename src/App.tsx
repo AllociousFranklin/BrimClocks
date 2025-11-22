@@ -17,7 +17,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-[#F5F5F5]">
+    <div className="min-h-screen bg-[#000100] text-[#F5F5F5]">
       {currentPage === 'splash' && <SplashPage onNavigate={navigateToPage} />}
       {currentPage === 'bio' && <BioPage onNavigate={navigateToPage} />}
       {currentPage === 'gallery' && <GalleryPage onNavigate={navigateToPage} />}

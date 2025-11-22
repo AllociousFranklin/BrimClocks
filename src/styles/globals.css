@@ -5,51 +5,51 @@
 :root {
   --font-size: 16px;
   
-  /* Theory of Arts Color Palette */
-  --primary-bg: #0A0A0A;
-  --secondary-surface: #1C1C1C;
-  --gold-accent: #CC9933;
+  /* Theory of Arts Color Palette - Updated Theme */
+  --primary-bg: #000100;
+  --secondary-surface: #292929;
+  --gold-accent: #B6B6B4;
   --primary-text: #F5F5F5;
   --secondary-text: #8A8A8A;
   
   /* Shadcn defaults (maintaining compatibility) */
-  --background: #0A0A0A;
+  --background: #000100;
   --foreground: #F5F5F5;
-  --card: #1C1C1C;
+  --card: #292929;
   --card-foreground: #F5F5F5;
-  --popover: #1C1C1C;
+  --popover: #292929;
   --popover-foreground: #F5F5F5;
-  --primary: #CC9933;
-  --primary-foreground: #0A0A0A;
-  --secondary: #1C1C1C;
+  --primary: #B6B6B4;
+  --primary-foreground: #000100;
+  --secondary: #292929;
   --secondary-foreground: #F5F5F5;
-  --muted: #1C1C1C;
+  --muted: #292929;
   --muted-foreground: #8A8A8A;
-  --accent: #CC9933;
-  --accent-foreground: #0A0A0A;
+  --accent: #B6B6B4;
+  --accent-foreground: #000100;
   --destructive: #d4183d;
   --destructive-foreground: #F5F5F5;
-  --border: rgba(204, 153, 51, 0.2);
+  --border: rgba(182, 182, 180, 0.2);
   --input: transparent;
-  --input-background: #1C1C1C;
+  --input-background: #292929;
   --switch-background: #8A8A8A;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #CC9933;
-  --chart-1: #CC9933;
+  --ring: #B6B6B4;
+  --chart-1: #B6B6B4;
   --chart-2: #F5F5F5;
   --chart-3: #8A8A8A;
-  --chart-4: #1C1C1C;
-  --chart-5: #0A0A0A;
+  --chart-4: #292929;
+  --chart-5: #000100;
   --radius: 0.625rem;
-  --sidebar: #0A0A0A;
+  --sidebar: #000100;
   --sidebar-foreground: #F5F5F5;
-  --sidebar-primary: #CC9933;
-  --sidebar-primary-foreground: #0A0A0A;
-  --sidebar-accent: #1C1C1C;
+  --sidebar-primary: #B6B6B4;
+  --sidebar-primary-foreground: #000100;
+  --sidebar-accent: #292929;
   --sidebar-accent-foreground: #F5F5F5;
-  --sidebar-border: rgba(204, 153, 51, 0.2);
-  --sidebar-ring: #CC9933;
+  --sidebar-border: rgba(182, 182, 180, 0.2);
+  --sidebar-ring: #B6B6B4;
 }
 
 @theme inline {
@@ -172,10 +172,10 @@ html {
 /* Gold accent animations */
 @keyframes goldGlow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(204, 153, 51, 0.3);
+    box-shadow: 0 0 20px rgba(182, 182, 180, 0.3);
   }
   50% {
-    box-shadow: 0 0 30px rgba(204, 153, 51, 0.5);
+    box-shadow: 0 0 30px rgba(182, 182, 180, 0.5);
   }
 }
 

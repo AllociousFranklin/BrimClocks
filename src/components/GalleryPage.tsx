@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import Masonry from 'react-responsive-masonry';
+import { ResponsiveMasonry } from 'react-responsive-masonry';
 import MobileNav from './MobileNav';
 
 type Page = 'splash' | 'bio' | 'gallery' | 'course' | 'contacts';
@@ -99,10 +100,10 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A]">
+    <div className="min-h-screen bg-[#000100]">
       {/* Navigation Header */}
       <motion.header
-        className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0A]/95 backdrop-blur-sm border-b border-[#CC9933]/20"
+        className="fixed top-0 left-0 right-0 z-50 bg-[#000100]/95 backdrop-blur-sm border-b border-[#B6B6B4]/20"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
@@ -110,7 +111,7 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <button
             onClick={() => onNavigate('splash')}
-            className="text-xl md:text-2xl text-[#CC9933] tracking-wider hover:opacity-80 transition-opacity"
+            className="text-xl md:text-2xl text-[#B6B6B4] tracking-wider hover:opacity-80 transition-opacity"
             style={{ fontFamily: 'Playfair Display, serif' }}
           >
             Theory of Arts
@@ -127,10 +128,10 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl text-[#CC9933] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <h1 className="text-5xl md:text-7xl text-[#B6B6B4] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
             Gallery
           </h1>
-          <div className="w-24 h-px bg-[#CC9933] mx-auto mt-6" />
+          <div className="w-24 h-px bg-[#B6B6B4] mx-auto mt-6" />
         </motion.div>
       </section>
 
@@ -148,56 +149,60 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
             Masterworks Collection
           </motion.h2>
 
-          <Masonry columnsCount={3} gutter="24px">
-            {masterworks.map((work, index) => (
-              <motion.div
-                key={work.id}
-                className="relative group cursor-pointer overflow-hidden"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                onMouseEnter={() => setHoveredWork(work.id)}
-                onMouseLeave={() => setHoveredWork(null)}
-              >
-                <div className="relative overflow-hidden">
-                  <ImageWithFallback
-                    src={work.image}
-                    alt={work.title}
-                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  
-                  {/* Hover overlay */}
-                  <div
-                    className={`absolute inset-0 bg-[#0A0A0A]/80 flex items-center justify-center transition-opacity duration-500 ${
-                      hoveredWork === work.id ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  >
-                    <div className="text-center px-6">
-                      <h3 className="text-2xl text-[#CC9933] mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
-                        {work.title}
-                      </h3>
-                      <p className="text-[#8A8A8A]">{work.year}</p>
+          <ResponsiveMasonry
+            columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}
+          >
+            <Masonry gutter="24px">
+              {masterworks.map((work, index) => (
+                <motion.div
+                  key={work.id}
+                  className="relative group cursor-pointer overflow-hidden"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  onMouseEnter={() => setHoveredWork(work.id)}
+                  onMouseLeave={() => setHoveredWork(null)}
+                >
+                  <div className="relative overflow-hidden">
+                    <ImageWithFallback
+                      src={work.image}
+                      alt={work.title}
+                      className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    
+                    {/* Hover overlay */}
+                    <div
+                      className={`absolute inset-0 bg-[#000100]/80 flex items-center justify-center transition-opacity duration-500 ${
+                        hoveredWork === work.id ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    >
+                      <div className="text-center px-6">
+                        <h3 className="text-2xl text-[#B6B6B4] mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                          {work.title}
+                        </h3>
+                        <p className="text-[#8A8A8A]">{work.year}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                
-                {/* Gold accent on hover */}
-                <div
-                  className={`absolute inset-0 border-2 border-[#CC9933] transition-opacity duration-500 pointer-events-none ${
-                    hoveredWork === work.id ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  style={{ boxShadow: hoveredWork === work.id ? '0 0 30px rgba(204, 153, 51, 0.4)' : 'none' }}
-                />
-              </motion.div>
-            ))}
-          </Masonry>
+                  
+                  {/* Accent border on hover */}
+                  <div
+                    className={`absolute inset-0 border-2 border-[#B6B6B4] transition-opacity duration-500 pointer-events-none ${
+                      hoveredWork === work.id ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    style={{ boxShadow: hoveredWork === work.id ? '0 0 30px rgba(182, 182, 180, 0.4)' : 'none' }}
+                  />
+                </motion.div>
+              ))}
+            </Masonry>
+          </ResponsiveMasonry>
         </div>
       </section>
 
       {/* Divider */}
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="h-px bg-gradient-to-r from-transparent via-[#CC9933] to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-[#B6B6B4] to-transparent" />
       </div>
 
       {/* Art for Acquisition */}
@@ -218,7 +223,7 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
             {artForSale.map((product, index) => (
               <motion.div
                 key={product.id}
-                className="bg-[#1C1C1C] overflow-hidden group"
+                className="bg-[#292929] overflow-hidden group"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -236,7 +241,7 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
                   <div
                     className={`absolute inset-0 border-2 transition-all duration-300 ${
                       hoveredProduct === product.id 
-                        ? 'border-[#CC9933] shadow-[0_0_30px_rgba(204,153,51,0.4)]' 
+                        ? 'border-[#B6B6B4] shadow-[0_0_30px_rgba(182,182,180,0.4)]' 
                         : 'border-transparent'
                     }`}
                   />
@@ -248,12 +253,12 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
                     {product.title}
                   </h3>
                   <p className="text-[#8A8A8A] mb-1">{product.dimensions}</p>
-                  <p className="text-[#CC9933] mb-6">{product.price}</p>
+                  <p className="text-[#B6B6B4] mb-6">{product.price}</p>
 
                   {/* CTA Button */}
                   <button
                     onClick={() => onNavigate('contacts')}
-                    className="w-full py-3 bg-[#CC9933] text-[#0A0A0A] hover:bg-[#CC9933]/90 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(204,153,51,0.3)]"
+                    className="w-full py-3 bg-[#B6B6B4] text-[#000100] hover:bg-[#B6B6B4]/90 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(182,182,180,0.3)]"
                   >
                     Inquire to Purchase
                   </button>
@@ -281,13 +286,13 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
                 alt="Art Studio"
                 className="w-full h-full object-cover opacity-20"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-[#0A0A0A]" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#000100] via-[#000100]/80 to-[#000100]" />
             </div>
 
             {/* Content */}
             <div className="relative z-10 text-center px-6 py-16 max-w-4xl">
               <motion.h2
-                className="text-4xl md:text-6xl text-[#CC9933] mb-6"
+                className="text-4xl md:text-6xl text-[#B6B6B4] mb-6"
                 style={{ fontFamily: 'Playfair Display, serif' }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -304,7 +309,7 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                Bespoke Art Services Tailored to Your Vision
+                Theory of Arts Services tailored to your vision
               </motion.p>
 
               <motion.p
@@ -320,7 +325,7 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
 
               <motion.button
                 onClick={() => onNavigate('contacts')}
-                className="px-16 py-5 bg-[#CC9933] text-[#0A0A0A] text-lg hover:bg-[#CC9933]/90 transition-all duration-300 hover:scale-105 gold-glow-animation"
+                className="px-16 py-5 bg-[#B6B6B4] text-[#000100] text-lg hover:bg-[#B6B6B4]/90 transition-all duration-300 hover:scale-105 gold-glow-animation"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -332,7 +337,7 @@ export default function GalleryPage({ onNavigate }: GalleryPageProps) {
           </div>
 
           {/* Decorative border */}
-          <div className="absolute inset-0 border-2 border-[#CC9933]/30 pointer-events-none" />
+          <div className="absolute inset-0 border-2 border-[#B6B6B4]/30 pointer-events-none" />
         </motion.div>
       </section>
     </div>
