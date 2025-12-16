@@ -1,30 +1,28 @@
 import { useState } from 'react';
-import SplashPage from './components/SplashPage';
-import BioPage from './components/BioPage';
-import GalleryPage from './components/GalleryPage';
-import CoursePage from './components/CoursePage';
-import ContactsPage from './components/ContactsPage';
-import Footer from './components/Footer';
-
-type Page = 'splash' | 'bio' | 'gallery' | 'course' | 'contacts';
+import { Header } from './components/brim/Header';
+import { HeroSlideshow } from './components/brim/HeroSlideshow';
+import { AboutSection } from './components/brim/AboutSection';
+import { ProductsSection } from './components/brim/ProductsSection';
+import { Footer } from './components/brim/Footer';
+import { ContactPage } from './components/brim/ContactPage';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('splash');
-
-  const navigateToPage = (page: Page) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const [currentPage, setCurrentPage] = useState<'home' | 'contact'>('home');
 
   return (
-    <div className="min-h-screen bg-[#000100] text-[#F5F5F5]">
-      {currentPage === 'splash' && <SplashPage onNavigate={navigateToPage} />}
-      {currentPage === 'bio' && <BioPage onNavigate={navigateToPage} />}
-      {currentPage === 'gallery' && <GalleryPage onNavigate={navigateToPage} />}
-      {currentPage === 'course' && <CoursePage onNavigate={navigateToPage} />}
-      {currentPage === 'contacts' && <ContactsPage onNavigate={navigateToPage} />}
+    <div className="min-h-screen bg-[#000100]">
+      <Header currentPage={currentPage} onNavigate={setCurrentPage} />
       
-      {currentPage !== 'splash' && <Footer />}
+      {currentPage === 'home' ? (
+        <>
+          <HeroSlideshow />
+          <AboutSection onNavigateToContact={() => setCurrentPage('contact')} />
+          <ProductsSection />
+          <Footer />
+        </>
+      ) : (
+        <ContactPage />
+      )}
     </div>
   );
 }
